@@ -21,7 +21,14 @@
     {% for contact in contact_list %}
     <tr>
       <td>
+        <a class="icon-link">
+            <i class="bi bi-pencil"></i>
+        </a>
+          &nbsp;
 
+          <a class="icon-link">
+            <i class="bi bi-trash"></i>
+          </a>
         &nbsp;
 
         {{ contact.name }}
