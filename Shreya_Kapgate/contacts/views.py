@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import Contact
 from .forms import ContactForm
 
+    
 class ContactListView(ListView):
     model = Contact
-
 def create_contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -16,3 +16,6 @@ def create_contact(request):
         form = ContactForm()
 
     return render(request, 'contacts/contact_form.html', {'form': form})
+
+class ContactDetailView(DetailView):
+    model = Contact

@@ -21,7 +21,7 @@
     {% for contact in contact_list %}
     <tr>
       <td>
-        <a class="icon-link">
+        <a class="icon-link" href="{% url 'contact_detail' contact.pk %}">
             <i class="bi bi-pencil"></i>
         </a>
           &nbsp;
@@ -31,7 +31,9 @@
           </a>
         &nbsp;
 
-        {{ contact.name }}
+        <a style="color: black; text-decoration: none;" href="{% url 'contact_detail' contact.pk %}">
+            {{ contact.name }}
+        </a>
       </td>
       <td>
         {{ contact.email}}
