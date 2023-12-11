@@ -1,7 +1,5 @@
 {% extends "base.html" %}
-
 {% block content %}
-
 <div class="centered-text" style="color: blue;">
     {% if is_creation %}
         <h1>Create a Contact</h1>
@@ -10,11 +8,40 @@
     {% endif %}
 </div>
 
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" />
+<form method="post" style="width: 26rem; align-items: center;">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="id_name">Name</label>
+        {{ form.name.errors }}
+        <input type="text" id="id_name" class="form-control {% if form.name.errors %}is-invalid{% endif %}" name="name" value="{{ form.instance.name }}" required>
+        <div class="invalid-feedback">
+            {{ form.name.errors }}
+        </div>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="id_email">Email address</label>
+        {{ form.email.errors }}
+        <input type="email" id="id_email" class="form-control {% if form.email.errors %}is-invalid{% endif %}" name="email" value="{{ form.instance.email }}" required>
+        <div class="invalid-feedback">
+            {{ form.email.errors }}
+        </div>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="id_notes">Notes</label>
+        {{ form.notes.errors }}
+        <textarea id="id_notes" class="form-control {% if form.notes.errors %}is-invalid{% endif %}" rows="4" name="notes" required>{{ form.instance.notes }}</textarea>
+        <div class="invalid-feedback">
+            {{ form.notes.errors }}
+        </div>
+    </div>
+    <br>
+    <button class="btn btn-primary" type="submit">Submit</button>
+    <a href="{% url 'contact_list' %}" class="btn btn-info">Cancel</a>
 </form>
+
 <hr>
 <div class="centered-text" style="color: green;">
     <h4>&copy; Created by Shreya Kapgate</h4>

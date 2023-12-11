@@ -7,3 +7,4 @@ class Contact(models.Model):
     email = models.EmailField(unique=True)
     created_time = models.DateTimeField(auto_now_add=True, editable=False)
     notes = models.TextField(max_length=200, default="")
+    

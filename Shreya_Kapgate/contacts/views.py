@@ -22,9 +22,16 @@ class CreateContactView(View):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('contact_list')  # Redirect to the contact list page or any other page
-        return render(request, self.template_name, {'form': form})
-
+            return redirect('contact_list')  # Redirect to the contact_list page after saving
+        else:
+            # Handle form errors if needed
+            # Re-render the form with errors
+            context = {
+                'form': form,
+                'is_creation': True
+            }
+            return render(request, self.template_name, context)  
+        
 class ContactUpdateView(UpdateView):
     model = Contact
     form_class = ContactForm
