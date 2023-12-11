@@ -4,7 +4,7 @@
 
 
 <div class="centered-text" style="color: blue;">
-    <h1>Confirm Delete</h1>
+    <h1 style="font-family: 'Times New Roman', Times, serif;"><b>Confirm Delete</b></h1>
 </div>
 <p>Are you sure you want to delete contact "{{ contact.name }}"?</p>
 <form method="post" action="{% url 'contact_delete' contact.id %}">
@@ -14,6 +14,6 @@
 </form>
 <hr>
 <div class="centered-text" style="color: green;">
-    <h4>&copy; Created by Shreya Kapgate</h4>
+    <h4 style="font-family: 'Times New Roman', Times, serif;"><b>&copy; Created by Shreya Kapgate</b></h4>
 </div>
 {% endblock content %}

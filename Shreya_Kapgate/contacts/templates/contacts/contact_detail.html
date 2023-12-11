@@ -2,21 +2,28 @@
 
 {% block content %}
 
-<div class="centered-text" style="color: blue;">
-    <h1>Contact Details</h1>
+<div class="centered-text" style="text-align: center; color: rgb(130, 25, 236);">
+    <h1 style="font-family: 'Times New Roman', Times, serif;"><b>Contact Details</b></h1>
 </div>
-<p>Name: {{ contact.name }}</p>
-<p>Email: {{ contact.email }}</p>
-<p>Notes: {{ contact.notes }}</p>
-<p>Created Time: {{ contact.created_time }}</p>
-<br>
-<a class="btn btn-info" href="{% url 'contact_list' %}" role="button">Home</a>
-<a class="btn btn-info" href="{% url 'contact_update' contact.pk %}" role="button">Edit</a>
-<a class="btn btn-info" href="{% url 'contact_delete' contact.pk %}" role="button">Delete</a>
+<div style="border: 2px solid #ccc; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <div style="max-width: 800px; margin-left: 550px; margin-right: auto; font-family: 'Times New Roman', Times, serif;">
 
+        <p><strong>Name:</strong> {{ contact.name }}</p>
+        <p><strong>Email:</strong> {{ contact.email }}</p>
+        <p><strong>Notes:</strong> {{ contact.notes }}</p>
+        <p><strong>Created Time:</strong> {{ contact.created_time }}</p>
+
+    </div>
+    <br>
+    <div style="text-align: center;">
+        <a class="btn btn-info" href="{% url 'contact_list' %}" role="button" style="background-color: rgb(62, 164, 231); color: rgb(0, 0, 0); border: 1px solid rgb(62, 164, 231);">Home</a>
+        <a class="btn btn-info" href="{% url 'contact_update' contact.pk %}" role="button" style="background-color: rgb(238, 230, 15); color: rgb(0, 0, 0); border: 1px solid rgb(238, 230, 15);">Edit</a>
+        <a class="btn btn-info" href="{% url 'contact_delete' contact.pk %}" role="button" style="background-color: rgb(244, 50, 50); color: rgb(0, 0, 0); border: 1px solid rgb(244, 50, 50);">Delete</a>
+    </div>
+</div>
 <hr>
-<div class="centered-text" style="color: green;">
-    <h4>&copy; Created by Shreya Kapgate</h4>
+<div class="centered-text" style="color: rgb(50, 186, 32);">
+    <h4 style="font-family: 'Times New Roman', Times, serif;"><b>&copy; Created by Shreya Kapgate</b></h4>
 </div>
 
 {% endblock content %}

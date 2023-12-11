@@ -2,12 +2,12 @@
 
 {% block content %}
 
-<div class="centered-text" style="color: blue;">
-    <h1>Contact Management</h1>
+<div class="centered-text" style="color: rgb(130, 25, 236);">
+    <h1 style="font-family: 'Times New Roman', Times, serif;"><b>Contact Management</b></h1>
 </div>
 
 <form action="{% url 'contact_create' %}" method="get">
-    <button type="submit">Create a New Contact</button>
+    <button type="submit" style="background-color: rgb(36, 101, 204); color: white;">Create a New Contact</button>
 </form>
 <table class="table table-striped">
   <thead>
@@ -22,12 +22,12 @@
     <tr>
       <td>
         <a class="icon-link" href="{% url 'contact_update' contact.pk %}">
-            <i class="bi bi-pencil"></i>
+            <i class="bi bi-pencil" style="color: rgb(9, 23, 225);"></i>
         </a>
           &nbsp;
 
           <a class="icon-link" href="{% url 'contact_delete' contact.pk %}">
-            <i class="bi bi-trash"></i>
+            <i class="bi bi-trash" style="color: rgb(9, 23, 225);"></i>
           </a>
         &nbsp;
 
@@ -49,7 +49,7 @@
 
 <hr>
 <div class="centered-text" style="color: green;">
-    <h4>&copy; Created by Shreya Kapgate</h4>
+    <h4 style="font-family: 'Times New Roman', Times, serif;"><b>&copy; Created by Shreya Kapgate</b></h4>
 </div>
 
 {% endblock content %}

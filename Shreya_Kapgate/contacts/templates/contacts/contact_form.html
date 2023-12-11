@@ -1,49 +1,51 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="centered-text" style="color: blue;">
+<div class="centered-text" style="text-align: center; color: rgb(130, 25, 236);">
     {% if is_creation %}
-        <h1>Create a Contact</h1>
+        <h1 style="font-family: 'Times New Roman', Times, serif;"><b>Create a Contact</b></h1>
     {% else %}
-        <h1>Edit Contact</h1>
+        <h1 style="font-family: 'Times New Roman', Times, serif;"><b>Edit Contact</b></h1>
     {% endif %}
 </div>
 
-<form method="post" style="width: 26rem; align-items: center;">
+<form method="post" style="max-width: 400px; margin: auto; display: flex; flex-direction: column; align-items: center; border: 2px solid #ccc; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
     {% csrf_token %}
 
-    <div class="form-group">
-        <label for="id_name">Name</label>
-        {{ form.name.errors }}
-        <input type="text" id="id_name" class="form-control {% if form.name.errors %}is-invalid{% endif %}" name="name" value="{{ form.instance.name }}" required>
+    <div class="form-group" style="width: 100%;">
+        <label for="id_name"><b>Name</b></label>
+       
+        <input type="text" id="id_name" class="form-control {% if form.name.errors %}is-invalid{% endif %}" name="name" value="{{ form.instance.name }}" required style="width: 100%;">
         <div class="invalid-feedback">
             {{ form.name.errors }}
         </div>
     </div>
     <br>
-    <div class="form-group">
-        <label for="id_email">Email address</label>
-        {{ form.email.errors }}
-        <input type="email" id="id_email" class="form-control {% if form.email.errors %}is-invalid{% endif %}" name="email" value="{{ form.instance.email }}" required>
+    <div class="form-group" style="width: 100%;">
+        <label for="id_email"><b>Email address</b></label>
+       
+        <input type="email" id="id_email" class="form-control {% if form.email.errors %}is-invalid{% endif %}" name="email" value="{{ form.instance.email }}" required style="width: 100%;">
         <div class="invalid-feedback">
             {{ form.email.errors }}
         </div>
     </div>
     <br>
-    <div class="form-group">
-        <label for="id_notes">Notes</label>
-        {{ form.notes.errors }}
-        <textarea id="id_notes" class="form-control {% if form.notes.errors %}is-invalid{% endif %}" rows="4" name="notes" required>{{ form.instance.notes }}</textarea>
+    <div class="form-group" style="width: 100%;">
+        <label for="id_notes"><b>Notes</b></label>
+      
+        <textarea id="id_notes" class="form-control {% if form.notes.errors %}is-invalid{% endif %}" rows="4" name="notes" required>{{ form.instance.notes }}</textarea style="width: 100%;">
         <div class="invalid-feedback">
             {{ form.notes.errors }}
         </div>
     </div>
     <br>
-    <button class="btn btn-primary" type="submit">Submit</button>
-    <a href="{% url 'contact_list' %}" class="btn btn-info">Cancel</a>
+    <div style="width: 100%; display: flex; justify-content: space-between;">
+        <button class="btn btn-primary" type="submit" ><b>Submit</b></button>
+        <a href="{% url 'contact_list' %}" class="btn btn-info"><b>Cancel</b></a>
+    </div>
 </form>
 
 <hr>
 <div class="centered-text" style="color: green;">
-    <h4>&copy; Created by Shreya Kapgate</h4>
+    <h4 style="font-family: 'Times New Roman', Times, serif;"><b>&copy; Created by Shreya Kapgate</b></h4>
 </div>
 {% endblock content %}
